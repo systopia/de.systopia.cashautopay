@@ -1,0 +1,24 @@
+{* Help pop-ups for CashAutoPay Settings (simple, clear, ASCII only) *}
+
+{htxt id="cashautopay_instruments_title"}Payment instruments{/htxt}
+{htxt id="cashautopay_instruments"}Choose which payment methods will be auto-created as assumed cash payments. The list comes from the "payment_instrument" option group.
+
+  Example: select "Cash". If you have a custom method called "Cash (auto)", select that instead.{/htxt}
+
+{htxt id="cashautopay_max_catch_title"}Max catch-up cycles{/htxt}
+{htxt id="cashautopay_max_catch"}How many missed installments to create per recurrence in one run. Set 0 for no limit.
+
+  Example: a monthly pledge is 10 months behind. If this value is 3, the job creates 3 contributions now; the rest will be created in later runs.{/htxt}
+
+{htxt id="cashautopay_run_limit_title"}Run limit{/htxt}
+{htxt id="cashautopay_run_limit"}Maximum number of contributions to create in a single execution (counting all recurrings together). Set 0 for no limit.
+
+  Example: 200 means the job will create at most 200 contributions each time it runs.{/htxt}
+
+{htxt id="cashautopay_grace_title"}Grace days{/htxt}
+{htxt id="cashautopay_grace"}Days to subtract from the planning date (date_to). Use this to avoid creating the current period too early.
+
+  Example: date_to = 2025-09-30 and grace_days = 3 -> effective planning date = 2025-09-27.{/htxt}
+
+{htxt id="cashautopay_debug_title"}Debug logging{/htxt}
+{htxt id="cashautopay_debug"}Write detailed messages to the CiviCRM log when preview/run executes. Turn on only for testing or troubleshooting; keep it off in production.{/htxt}
