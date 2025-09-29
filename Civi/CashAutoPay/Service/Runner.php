@@ -1,9 +1,21 @@
 <?php
+/*-------------------------------------------------------+
+| AssumedPayments                                        |
+| Copyright (C) 2025 SYSTOPIA                            |
+| Author: J. Ortiz (ortiz -at- systopia.de)              |
+| http://www.systopia.de/                                |
++--------------------------------------------------------+
+| License: AGPLv3, see /LICENSE                          |
++--------------------------------------------------------*/
+declare(strict_types = 1);
+
+namespace Civi\CashAutoPay\Service;
+
 use Civi\Api4\ContributionRecur;
 use Civi\Api4\Contribution;
 use Civi\Api4\Payment;
 
-class CRM_CashAutoPay_Service_Runner {
+final class Runner {
 
     public function preview($params = []) {
         $plan = $this->plan($params);

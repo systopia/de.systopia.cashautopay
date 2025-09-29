@@ -1,0 +1,22 @@
+site_name: Cash AutoPay
+site_description: "CiviCRM extension to auto-create cash contributions for recurring schedules"
+site_url: ""
+
+theme:
+  name: mkdocs
+
+repo_name: systopia/de.systopia.cashautopay
+repo_url: https://github.com/systopia/de.systopia.cashautopay
+
+nav:
+  - Overview: index.md
+  - Getting started: getting-started.md
+  - Configuration: configuration.md
+  - Usage: usage.md
+  - API (CLI / APIv4): api.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true

@@ -1,24 +1,34 @@
 <?php
+/*-------------------------------------------------------+
+| AssumedPayments                                        |
+| Copyright (C) 2025 SYSTOPIA                            |
+| Author: J. Ortiz (ortiz -at- systopia.de)              |
+| http://www.systopia.de/                                |
++--------------------------------------------------------+
+| License: AGPLv3, see /LICENSE                          |
++--------------------------------------------------------*/
+declare(strict_types = 1);
 
+use Civi\Api4\OptionValue;
 class CRM_CashAutoPay_Form_Settings extends CRM_Core_Form {
 
   public function buildQuickForm() {
     CRM_Utils_System::setTitle(ts('Cash AutoPay Settings'));
 
-    CRM_Core_Resources::singleton()->addStyleFile('de.systopia.cashautopay', 'css/admin.css');
-
     $options = [];
+
     try {
-      $res = civicrm_api3('OptionValue', 'get', [
-        'option_group_id' => 'payment_instrument',
-        'sequential' => 1,
-        'return' => ['value', 'label'],
-        'options' => ['limit' => 0],
-      ]);
-      foreach ($res['values'] as $row) {
-        $options[(int) $row['value']] = $row['label'];
+      $rows = OptionValue::get(FALSE)
+          ->addSelect('value', 'label')
+          ->addWhere('option_group_id:name', '=', 'payment_instrument')
+          ->setLimit(0)
+          ->execute();
+
+      foreach ($rows as $row) {
+          $options[(int) $row['value']] = (string) $row['label'];
       }
-    } catch (Exception $e) {}
+    } catch (\Throwable $e) {
+    }
 
     $this->add('select',
       'cashautopay_payment_instruments',
@@ -48,26 +58,6 @@ class CRM_CashAutoPay_Form_Settings extends CRM_Core_Form {
     $this->addFormRule([__CLASS__, 'validateValues']);
     $this->assign('helpText', $this->getHelpText());
 
-    $this->assign('desc', [
-      'instruments' => ts('Choose which payment instruments will be auto-generated as assumed cash contributions.'),
-      'max_catch'   => ts('Upper limit of missed periods created per recurrence. 0 means “no limit”.'),
-      'run_limit'   => ts('Global cap of items created per execution (sum across all recurrings). 0 means “no limit”.'),
-      'grace'       => ts('Days subtracted from the effective planning horizon to avoid creating the current period too early.'),
-      'debug'       => ts('Adds verbose log entries to CiviCRM logs. Leave unchecked in production.'),
-    ]);
-    $this->assign('ex', [
-      'instruments' => ts('Example: Select “Cash”.'),
-      'max_catch'   => ts('Example: 6 → if a monthly recurrence is 10 months behind, only 6 months are created now.'),
-      'run_limit'   => ts('Example: 500 → never create more than 500 items in one run.'),
-      'grace'       => ts('Example: date_to=2025-09-30 and grace_days=3 → effective horizon=2025-09-27.'),
-    ]);
-    $this->assign('tips', [
-      'instruments' => ts('These are values from the “payment_instrument” option group. You can add new ones in Administer → System Settings → Option Groups.'),
-      'max_catch'   => ts('Helps to throttle large backlogs for a single recurrence. Future runs will continue catching up until it’s fully up to date.'),
-      'run_limit'   => ts('Useful to keep scheduled jobs fast and predictable. Combine with “Max catch-up cycles” for fine-grained control.'),
-      'grace'       => ts('Prevents generating a payment that would look too “early” to staff. Typical values: 0–5.'),
-      'debug'       => ts('Writes per-item details from preview/run. Recommended only during initial rollout or troubleshooting.'),
-    ]);
   }
 
   protected function getDefaultValues(): array {
@@ -81,7 +71,12 @@ class CRM_CashAutoPay_Form_Settings extends CRM_Core_Form {
     ];
   }
 
-  public static function validateValues($values) {
+
+  /**
+  * @param array<string,mixed> $values
+  * @return true|array<string,string>
+  */
+  public static function validateValues(array $values): true|array {
     $errors = [];
     $inst = isset($values['cashautopay_payment_instruments']) ? (array) $values['cashautopay_payment_instruments'] : [];
     if (empty($inst)) {

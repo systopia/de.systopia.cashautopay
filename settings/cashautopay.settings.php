@@ -1,4 +1,15 @@
 <?php
+/*-------------------------------------------------------+
+| AssumedPayments                                        |
+| Copyright (C) 2025 SYSTOPIA                            |
+| Author: J. Ortiz (ortiz -at- systopia.de)              |
+| http://www.systopia.de/                                |
++--------------------------------------------------------+
+| License: AGPLv3, see /LICENSE                          |
++--------------------------------------------------------*/
+
+declare(strict_types = 1);
+
 return [
   'cashautopay_payment_instruments' => [
     'group_name' => 'cashautopay',
