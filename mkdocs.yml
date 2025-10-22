@@ -1,12 +1,10 @@
-site_name: Cash AutoPay
-site_description: "CiviCRM extension to auto-create cash contributions for recurring schedules"
-site_url: ""
+site_name: Assumed Payments
+site_description: Assumed payments extension to generate and process recurring contributions.
+site_author: ortiz
+repo_url: https://github.com/systopia/de.systopia.cashautopay
 
 theme:
-  name: mkdocs
-
-repo_name: systopia/de.systopia.cashautopay
-repo_url: https://github.com/systopia/de.systopia.cashautopay
+  name: material
 
 nav:
   - Overview: index.md
@@ -16,7 +14,18 @@ nav:
   - API (CLI / APIv4): api.md
 
 markdown_extensions:
+  - attr_list
   - admonition
-  - tables
+  - def_list
+  - codehilite
   - toc:
       permalink: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.tilde
+  - pymdownx.betterem
+  - pymdownx.mark
+
+plugins:
+  - search:
+      lang: en

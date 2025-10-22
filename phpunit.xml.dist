@@ -4,7 +4,7 @@
          colors="true"
          failOnRisky="true"
          failOnWarning="true"
-         forceCoversAnnotation="false"
+         forceCoversAnnotation="true"
          bootstrap="tests/phpunit/bootstrap.php">
 
   <php>
@@ -13,7 +13,7 @@
   </php>
 
   <testsuites>
-    <testsuite name="de.systopia.contract Test Suite">
+    <testsuite name="de.systopia.cashautopay Test Suite">
       <directory>./tests/phpunit</directory>
     </testsuite>
   </testsuites>
@@ -25,7 +25,7 @@
       <directory suffix=".php">Civi</directory>
     </include>
     <exclude>
-      <directory>CRM/Contract/DAO</directory>
+      <directory>CRM/Cashautopay/DAO</directory>
     </exclude>
   </coverage>
 
