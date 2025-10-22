@@ -5,7 +5,7 @@
 - PHP 8.1+
 
 ## Installation
-1. Place **`de.systopia.cashautopay`** into your extensions directory.
+1. Place **`assumed-payments`** into your extensions directory.
 2. Enable the extension in **Administer → System Settings → Extensions**.
 3. Clear caches:
    ```bash

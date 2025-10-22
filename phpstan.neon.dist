@@ -4,13 +4,13 @@ parameters:
 		- Civi
 		- CRM
 		- tests
-		- cashautopay.php
+		- assumed_payments.php
 	excludePaths:
 		analyse:
-			- CRM/Cashautopay/DAO/*
+			- CRM/AssumedPayments/DAO/*
 			- tests/phpunit/bootstrap.php
 	scanFiles:
-		- cashautopay.civix.php
+		- assumed_payments.civix.php
 		- tools/phpunit/vendor/bin/.phpunit/phpunit/src/Framework/TestCase.php
 	scanDirectories:
 		- tools/phpunit/vendor/bin/.phpunit/phpunit/src/Framework

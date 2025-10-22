@@ -12,14 +12,14 @@ declare(strict_types = 1);
 
 return [
     [
-        'name'   => 'Job_CashAutoPay_Run',
+        'name'   => 'Job_AssumedPayments_Run',
         'entity' => 'Job',
         'update'  => 'always',
         'cleanup' => 'never',
         'params'  => [
             'version'       => 3,
             'api_version'   => 4,
-            'name'          => 'Cash AutoPay: Run',
+            'name'          => 'Assumed Payments: Run',
             'description'   => 'Create assumed cash contributions and payments for overdue recurring contributions.',
             'api_entity'    => 'AssumedPayments',
             'api_action'    => 'run',

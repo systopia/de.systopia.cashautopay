@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Cashautopay;
+namespace AssumedPayments;
 
 use Composer\Package\Link;
 use Composer\Repository\RepositoryManager;

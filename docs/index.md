@@ -1,6 +1,6 @@
-# Cash AutoPay
+# Assumed Payments
 
-Cash AutoPay automatically **creates cash contributions and matching payments** for overdue recurring schedules based on your configuration.
+Assumed Payments automatically **creates contributions and matching payments** for overdue recurring schedules based on your configuration.
 
 > 🔀 **Move here from the old README:** high-level overview, feature list, and rationale.
 

@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 /*
  * This file is part of the Assumed Payments extension for CiviCRM.
@@ -29,7 +29,7 @@ final class AssumedPaymentsSpecProvider implements SpecProviderInterface {
     $preview->addParam('params', 'Array', [
       'title' => 'Parameters',
       'description' => 'run_limit, grace_days, max_catchup_cycles, debug, etc.',
-      'required' => false,
+      'required' => FALSE,
       'default' => [],
     ]);
 
@@ -39,8 +39,9 @@ final class AssumedPaymentsSpecProvider implements SpecProviderInterface {
     $run->addParam('params', 'Array', [
       'title' => 'Parameters',
       'description' => 'run_limit, grace_days, max_catchup_cycles, debug, etc.',
-      'required' => false,
+      'required' => FALSE,
       'default' => [],
     ]);
   }
+
 }

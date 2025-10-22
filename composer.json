@@ -1,5 +1,5 @@
 {
-    "name": "systopia/de.systopia.cashautopay",
+    "name": "systopia/assumed-payments",
     "description": "Assumed payments extension to generate and process recurring contributions.",
     "type": "civicrm-ext",
     "license": "AGPL-3.0-or-later",
@@ -28,7 +28,7 @@
     },
     "scripts": {
         "pre-update-cmd": [
-            "Cashautopay\\ComposerHelper::preUpdate"
+            "AssumedPayments\\ComposerHelper::preUpdate"
         ],
         "composer-phpcs": [
             "@composer --working-dir=tools/phpcs"

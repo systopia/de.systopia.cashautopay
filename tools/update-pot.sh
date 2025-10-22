@@ -32,4 +32,4 @@ fi
 cd "$SCRIPT_DIR/.."
 
 [ -d l10n ] || mkdir l10n
-civistrings -o "l10n/cashautopay.pot" - < <(git ls-files)
+civistrings -o "l10n/assumed_payments.pot" - < <(git ls-files)

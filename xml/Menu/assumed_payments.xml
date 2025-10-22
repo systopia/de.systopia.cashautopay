@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <menu>
   <item>
-    <path>civicrm/cashautopay/settings</path>
-    <page_callback>CRM_CashAutoPay_Form_Settings</page_callback>
-    <title>Cash AutoPay Settings</title>
+    <path>civicrm/assumed-payments/settings</path>
+    <page_callback>CRM_AssumedPayments_Form_Settings</page_callback>
+    <title>Assumed Payments Settings</title>
     <access_arguments>administer CiviCRM</access_arguments>
     <is_public>0</is_public>
     <weight>10</weight>

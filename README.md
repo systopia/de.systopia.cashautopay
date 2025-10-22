@@ -1,6 +1,6 @@
-# Cash AutoPay (de.systopia.cashautopay)
+# Assumed Payments
 
-This CiviCRM extension **assumes/catches up cash payments** for overdue recurring schedules.
+This CiviCRM extension **assumes/catches up payments** for overdue recurring schedules.
 
 The full documentation lives in **MKDocs** under the [`docs/`](./docs) folder.
 

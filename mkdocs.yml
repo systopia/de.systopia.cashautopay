@@ -1,7 +1,7 @@
 site_name: Assumed Payments
 site_description: Assumed payments extension to generate and process recurring contributions.
 site_author: ortiz
-repo_url: https://github.com/systopia/de.systopia.cashautopay
+repo_url: https://github.com/systopia/assumed-payments
 
 theme:
   name: material

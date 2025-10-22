@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<extension key="de.systopia.cashautopay" type="module">
-  <file>cashautopay</file>
+<extension key="assumed-payments" type="module">
+  <file>assumed_payments</file>
   <name>Assumed Payments</name>
   <description>Assumed payments extension to generate and process recurring contributions.</description>
   <license>AGPL-3.0-or-later</license>
@@ -9,9 +9,9 @@
     <email>ortiz@systopia.de</email>
   </maintainer>
   <urls>
-    <url desc="Main Extension Page">https://github.com/systopia/de.systopia.cashautopay</url>
+    <url desc="Main Extension Page">https://github.com/systopia/assumed-payments</url>
     <url desc="Documentation">https://docs.civicrm.org/assumed-payments</url>
-    <url desc="Support">https://github.com/systopia/de.systopia.cashautopay/issues</url>
+    <url desc="Support">https://github.com/systopia/assumed-payments/issues</url>
     <url desc="Licensing">https://www.gnu.org/licenses/agpl-3.0.html</url>
   </urls>
   <releaseDate/>
@@ -26,9 +26,9 @@
     <psr4 prefix="Civi\" path="Civi"/>
   </classloader>
   <civix>
-    <namespace>CRM/Cashautopay</namespace>
+    <namespace>CRM/AssumedPayments</namespace>
     <format>25.08.0</format>
-    <angularModule>crmCashautopay</angularModule>
+    <angularModule>crmAssumedPayments</angularModule>
   </civix>
   <mixins>
     <mixin>mgd-php@1.0.0</mixin>

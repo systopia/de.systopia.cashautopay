@@ -1,4 +1,4 @@
-Package: de.systopia.cashautopay
+Package: assumed-payments
 Copyright (C) 2025, ortiz <ortiz@systopia.de>
 Licensed under the GNU Affero Public License 3.0 (below).
 

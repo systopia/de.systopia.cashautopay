@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Civi\Api4\Action\AssumedPayments;
 
@@ -10,45 +10,46 @@ use Civi\Api4\Generic\AbstractAction;
  */
 final class Preview extends AbstractAction {
 
-    public $run_limit = null;
-    public $grace_days = null;
-    public $from_date = null;
-    public $debug = null;
+  public $run_limit = NULL;
+  public $grace_days = NULL;
+  public $from_date = NULL;
+  public $debug = NULL;
 
-    public $setRun_limit = null;
-    public $setGrace_days = null;
-    public $setFrom_date = null;
-    public $setDebug = null;
+  public $setRun_limit = NULL;
+  public $setGrace_days = NULL;
+  public $setFrom_date = NULL;
+  public $setDebug = NULL;
 
-    public function _run($result) {
-        $params = [];
+  public function _run($result) {
+    $params = [];
 
-        $runLimit = ($this->run_limit !== null) ? $this->run_limit : $this->setRun_limit;
-        if ($runLimit !== null && $runLimit !== '') {
-            $params['run_limit'] = (int) $runLimit;
-        }
-
-        $graceDays = ($this->grace_days !== null) ? $this->grace_days : $this->setGrace_days;
-        if ($graceDays !== null && $graceDays !== '') {
-            $params['grace_days'] = (int) $graceDays;
-        }
-
-        $fromDate = ($this->from_date !== null) ? $this->from_date : $this->setFrom_date;
-        if ($fromDate !== null && $fromDate !== '') {
-            $params['from_date'] = (string) $fromDate;
-        }
-
-        $dbg = ($this->debug !== null) ? $this->debug : $this->setDebug;
-        if ($dbg !== null && $dbg !== '') {
-            $params['debug'] = filter_var($dbg, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-            if ($params['debug'] === null) {
-                $params['debug'] = (bool) $dbg;
-            }
-        }
-
-        $runner = new \Civi\CashAutoPay\Service\Runner();
-        $data = $runner->preview($params);
-
-        $result[] = $data;
+    $runLimit = ($this->run_limit !== NULL) ? $this->run_limit : $this->setRun_limit;
+    if ($runLimit !== NULL && $runLimit !== '') {
+      $params['run_limit'] = (int) $runLimit;
     }
+
+    $graceDays = ($this->grace_days !== NULL) ? $this->grace_days : $this->setGrace_days;
+    if ($graceDays !== NULL && $graceDays !== '') {
+      $params['grace_days'] = (int) $graceDays;
+    }
+
+    $fromDate = ($this->from_date !== NULL) ? $this->from_date : $this->setFrom_date;
+    if ($fromDate !== NULL && $fromDate !== '') {
+      $params['from_date'] = (string) $fromDate;
+    }
+
+    $dbg = ($this->debug !== NULL) ? $this->debug : $this->setDebug;
+    if ($dbg !== NULL && $dbg !== '') {
+      $params['debug'] = filter_var($dbg, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+      if ($params['debug'] === NULL) {
+        $params['debug'] = (bool) $dbg;
+      }
+    }
+
+    $runner = new \Civi\AssumedPayments\Service\Runner();
+    $data = $runner->preview($params);
+
+    $result[] = $data;
+  }
+
 }
