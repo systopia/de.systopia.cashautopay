@@ -77,6 +77,7 @@ final class Runner {
           'period_key' => $item['period_key'],
           'message'    => $e->getMessage(),
         ];
+        // @ignoreException
       }
     }
 
@@ -103,10 +104,10 @@ final class Runner {
 
     $limit = isset($params['limit']) && $params['limit'] !== NULL
       ? (int) $params['limit']
-      : ($settings->get('assumed_payments_run_limit') ?: NULL);
+      : $settings->get('assumed_payments_run_limit');
 
     $toCreate = [];
-    if (empty($ids)) {
+    if ([] !== $ids) {
       return ['to_create' => [], 'limit' => $limit];
     }
 
@@ -128,8 +129,8 @@ final class Runner {
       ->execute();
 
     foreach ($recurList as $r) {
-      $baseDate = $r['next_sched_contribution_date'] ?: $r['start_date'];
-      if (!$baseDate) {
+      $baseDate = $r['next_sched_contribution_date'] ?? $r['start_date'];
+      if (!isset($baseDate)) {
         continue;
       }
 

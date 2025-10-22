@@ -30,6 +30,7 @@ class CRM_AssumedPayments_Form_Settings extends CRM_Core_Form {
       }
     }
     catch (\Throwable $e) {
+      // @ignoreException
     }
 
     $this->add('select',
@@ -65,7 +66,7 @@ class CRM_AssumedPayments_Form_Settings extends CRM_Core_Form {
   protected function getDefaultValues(): array {
     $s = Civi::settings();
     return [
-      'assumed_payments_payment_instruments' => (array) $s->get('assumed_payments_payment_instruments') ?: [],
+      'assumed_payments_payment_instruments' => (array) $s->get('assumed_payments_payment_instruments') ?? [],
       'assumed_payments_max_catchup_cycles'  => (int) ($s->get('assumed_payments_max_catchup_cycles') ?? 2),
       'assumed_payments_run_limit'           => (int) ($s->get('assumed_payments_run_limit') ?? 500),
       'assumed_payments_grace_days'          => (int) ($s->get('assumed_payments_grace_days') ?? 3),

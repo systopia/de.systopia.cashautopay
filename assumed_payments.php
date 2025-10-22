@@ -10,7 +10,7 @@
 declare(strict_types = 1);
 
 // phpcs:disable PSR1.Files.SideEffects.FoundWithSymbols
-require_once '/assumed_payments.civix.php';
+require_once 'assumed_payments.civix.php';
 // phpcs:enable
 
 /**

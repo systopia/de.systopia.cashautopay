@@ -38,7 +38,7 @@ final class Preview extends AbstractAction {
       $params['from_date'] = (string) $fromDate;
     }
 
-    $dbg = ($this->debug !== NULL) ? $this->debug : $this->setDebug;
+    $dbg = $this->debug ?? $this->setDebug;
     if ($dbg !== NULL && $dbg !== '') {
       $params['debug'] = filter_var($dbg, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
       if ($params['debug'] === NULL) {
